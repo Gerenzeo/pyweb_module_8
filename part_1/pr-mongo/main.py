@@ -35,24 +35,22 @@ def get_all_quotes_by_tagnames(value):
 if __name__ == '__main__':
     connection_to_mongo()
 
-    get_all_quotes_by_tagnames('success,world')
+    while True:
+        user = input('Enter command [press "quit" for exit]: ')
 
-    # while True:
-    #     user = input('Enter command [press "quit" for exit]: ')
-    #
-    #     if user == 'exit':
-    #         break
-    #
-    #     try:
-    #         command, value = user.split(':')
-    #
-    #
-    #         if command == 'name':
-    #             get_all_quotes_by_name(value)
-    #         elif command == 'tag':
-    #             get_all_quotes_by_tagname(value)
-    #         elif command == 'tags':
-    #             get_all_quotes_by_tagnames(value)
-    #
-    #     except (ValueError, NameError) as e:
-    #         print("Template: <command>:<value>")
+        if user == 'exit':
+            break
+
+        try:
+            command, value = user.split(':')
+
+
+            if command == 'name':
+                get_all_quotes_by_name(value)
+            elif command == 'tag':
+                get_all_quotes_by_tagname(value)
+            elif command == 'tags':
+                get_all_quotes_by_tagnames(value)
+
+        except (ValueError, NameError) as e:
+            print("Template: <command>:<value>")
